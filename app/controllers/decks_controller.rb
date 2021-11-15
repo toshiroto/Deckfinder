@@ -4,7 +4,7 @@ class DecksController < ApplicationController
   end
 
   def new
-    @decks = Deck.new
+    @deck = Deck.new
   end
 
   def create
