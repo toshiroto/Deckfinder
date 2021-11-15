@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_11_15_064848) do
     t.bigint "user_id", null: false
     t.date "start_date"
     t.date "end_date"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deck_id"], name: "index_rentals_on_deck_id"
