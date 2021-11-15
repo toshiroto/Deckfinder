@@ -9,7 +9,15 @@ class DecksController < ApplicationController
 
   def create
     @deck = Deck.new(params[:deck])
-    @deck.save
+    if @deck.save
+      redirect_to deck_path(@deck)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @deck = Deck.find(params[:id])
   end
 
   private
