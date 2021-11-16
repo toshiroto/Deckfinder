@@ -1,6 +1,19 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $gray;
+  padding-top: 10px;
+
+  a {
+    color: $red;
+  }
+
+  ul > li {
+    color: $red;
+  }
+}
+
+.navbar-lewagon .nav-item-active {
+  color: $red;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,5 +23,3 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
-
-
