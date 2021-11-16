@@ -8,9 +8,10 @@ class DecksController < ApplicationController
   end
 
   def create
-    @deck = Deck.new(params[:deck])
+    @deck = Deck.new(deck_params)
+    @deck.user = current_user
     if @deck.save
-      redirect_to deck_path(@deck)
+      redirect_to decks_path
     else
       render :new
     end
