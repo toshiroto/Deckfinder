@@ -1,19 +1,30 @@
 <body>
 <div class="container">
   <div class="row">
+    <div class="col-sm-6 text-center"><p>Owner</p></div>
+    <div class="col-sm-6 text-center"><p>Player</p></div>
+  </div>
     <% @decks.each do |deck| %>
-      <div class="col-sm-6">
-        <div class="card">
+      <%# <div class="col-sm-6"> %>
           <div class="card-body">
-          <p class="card-title"><%= deck.name %></h5>
+          <p class="card-title"><strong><%= deck.name %></strong></p>
+          <p class="card-text">$<%= deck.price %></p>
           <p class="card-text"><%= deck.desc %></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+          <a href="#" class="btn btn-primary">Request Rental</a>
+    </div>
+      <% end %>
+
+  <div class="row"> %>
+    <% @decks.each do |deck| %>
+      <%# <div class="col-sm-6"> %>
+          <div class="card-body">
+          <p class="card-title"><strong><%= deck.name %></strong></p>
+          <p class="card-text">$<%= deck.price %></p>
+          <p class="card-text"><%= deck.desc %></p>
+          <a href="#" class="btn btn-primary">Request Rental</a>
       </div>
   </div>
   <% end %>
   </div>
-</div>
-</div>
 </div>
 </body>
