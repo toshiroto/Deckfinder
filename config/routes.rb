@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :decks, only: [:new, :create, :index, :show] do
     resources :rentals, only: [:new, :create, :index]
   end
-  resources :rentals, only: [:edit, :update]
+  resources :rentals, only: [:edit, :update, :show]
 end

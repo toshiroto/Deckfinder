@@ -10,7 +10,7 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    user_is_owner? || user_is_admin? || record.user == user
   end
 
   def update?
