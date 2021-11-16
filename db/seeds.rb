@@ -28,5 +28,4 @@ carlos_topete.save!
     user_id: joss_dixon.id
   )
 
-
 puts 'done!'
