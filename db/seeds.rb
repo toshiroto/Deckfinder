@@ -14,20 +14,19 @@ puts 'database is clean'
 puts 'creating Decks'
 puts 'creating Users'
 
-100.times do
-  user_instance = User.create(
-    email: Faker::Internet.email,
-    password: Faker::Internet.password
-  )
+joss_dixon = User.new(email: "jossdixon@gmail.com", password: "123456")
+joss_dixon.save!
+michiharu_ono = User.new(email: "michiharuono77@gmail.com", password: "567890")
+michiharu_ono.save!
+carlos_topete = User.new(email: "chtopete@gmail.com", password: "123098")
+carlos_topete.save!
 
   deck_instance = Deck.create(
     name: Faker::Books::CultureSeries.book,
     desc: Faker::Quotes::Chiquito.joke,
     price: rand(1..100),
-    user_id: user_instance.id
+    user_id: joss_dixon.id
   )
-  puts "User #{user_instance.id} is created"
-  puts "Deck #{deck_instance.id} is created"
-end
+
 
 puts 'done!'
