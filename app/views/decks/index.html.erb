@@ -1,14 +1,19 @@
 <body>
-<div class="cards">
-  <% @decks.each do |deck| %>
-    <div class="card-category">
-      <div class="card-body">
-        <p class="card-title"><%= deck.name %></h5>
-        <p class="card-subtitle mb-2 text-muted">$<%= deck.price %></h6>
-        <p class="card-text"><%= deck.desc %></p>
-        <a href="#" class="card-link">Request rental</a>
-    </div>
+<div class="container">
+  <div class="row">
+    <% @decks.each do |deck| %>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+          <p class="card-title"><%= deck.name %></h5>
+          <p class="card-text"><%= deck.desc %></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+  </div>
   <% end %>
   </div>
+</div>
+</div>
 </div>
 </body>
