@@ -1,9 +1,11 @@
 <div class="container" mt-3>
-  <h1>Edit a rental</h1>
-<%= simple_form_for @rental do |f| %>
-<%= f.input :status, collection: Rental.statuses.keys %>
-<%= f.input :start_date %>
- <%= f.input :end_date %>
-<%= f.submit "Enter", class: "btn btn-primary" %>
-<% end %>
+  <h1>Edit Rental Status</h1>
+    <br>
+    <p>Start Date: <%= @rental.start_date %></p>
+    <p>End Date: <%= @rental.end_date %></p>
+    <br>
+    <%= simple_form_for @rental do |f| %>
+      <%= f.input :status, collection: Rental.statuses.keys %>
+      <%= f.submit "Enter", class: "btn btn-primary" %>
+    <% end %>
 </div>

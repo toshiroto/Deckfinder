@@ -1,29 +1,36 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 text-center"><p>Owner</p></div>
     <div class="col-sm-6 text-center"><p>Player</p></div>
+    <div class="col-sm-6 text-center"><p>Owner</p></div>
   </div>
 
+<%# User as a player%>
   <% @decks.each do |deck| %>
+    <%# Creating a condition where a user does not see his/her own deck in a player list %>
+    <% if deck.user != current_user%>
     <%# <div class="col-sm-6"> %>
-    <div class="card-body">
-      <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
-      <p class="card-text">$<%= deck.price %></p>
-      <p class="card-text"><%= deck.desc %></p>
-      <%# <% <a href="#" class="btn btn-primary">Request Rental</a> %>
-      <%= link_to "Request Rental",  new_deck_rental_path(deck), class:"btn btn-primary" %>
-    </div>
-  <% end %>
-
-  <div class="row">
-    <% @decks.each do |deck| %>
-      <%# <div class="col-sm-6"> %>
       <div class="card-body">
-        <p class="card-title"><strong><%= deck.name %></strong></p>
+        <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
         <p class="card-text">$<%= deck.price %></p>
         <p class="card-text"><%= deck.desc %></p>
-        <a href="#" class="btn btn-primary">Request Rental</a>
+        <%# <% <a href="#" class="btn btn-primary">Request Rental</a> %>
+        <%= link_to "Request Rental",  new_deck_rental_path(deck), class:"btn btn-primary" %>
       </div>
+    <% end %>
+  <% end %>
+
+<%# User as an owner %>
+  <div class="row">
+    <% @decks.each do |deck| %>
+      <% if deck.user == current_user%>
+        <%# <div class="col-sm-6"> %>
+        <div class="card-body">
+          <p class="card-title"><strong><%= deck.name %></strong></p>
+          <p class="card-text">$<%= deck.price %></p>
+          <p class="card-text"><%= deck.desc %></p>
+          <a href="#" class="btn btn-primary">Request Rental</a>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
