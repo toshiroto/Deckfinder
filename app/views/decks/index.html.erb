@@ -1,7 +1,14 @@
 <body>
-    <ul>
-      <% @decks.each do |deck| %>
-        <li><%= deck.name %></li>
-      <% end %>
-    </ul>
+<div class="cards">
+  <% @decks.each do |deck| %>
+    <div class="card-category">
+      <div class="card-body">
+        <p class="card-title"><%= deck.name %></h5>
+        <p class="card-subtitle mb-2 text-muted">$<%= deck.price %></h6>
+        <p class="card-text"><%= deck.desc %></p>
+        <a href="#" class="card-link">Request rental</a>
+    </div>
+  <% end %>
+  </div>
+</div>
 </body>
