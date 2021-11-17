@@ -28,4 +28,13 @@ carlos_topete.save!
     user_id: joss_dixon.id
   )
 }
+
+5.times { Deck.create(
+    name: Faker::Music::Prince.album,
+    desc: Faker::Quotes::Chiquito.joke,
+    price: rand(1..100),
+    user_id: carlos_topete.id
+  )
+}
+
 puts 'done!'
