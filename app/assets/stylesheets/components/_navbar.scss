@@ -24,7 +24,16 @@
   width: 40px;
 }
 
-.navbar-light .navbar-brand .nav-link {
+navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+  color: $purple;
+  &:hover {
   color: $red;
+  }
+}
 
+.navbar-light .navbar-brand {
+  color: $purple;
+  &:hover {
+  color: $red;
+  }
 }
