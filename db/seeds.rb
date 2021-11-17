@@ -99,3 +99,26 @@ Deck.create(
   user_id: carlos_topete.id
 )
 puts 'done!'
+
+require 'json'
+require 'open-uri'
+require 'uri'
+
+puts 'Creating cards now'
+
+url = "https://api.magicthegathering.io/v1/cards?colorIdentity=%22W%22"
+card_serialized = URI.open(url).read
+mtg = JSON.parse(card_serialized)
+
+cards = mtg["cards"] # array of cards
+
+puts 'creating cards'
+
+cards.first(7).each do |card|
+  mtg_card = Card.create(name: card["name"], imageUrl: card["imageUrl"], text: card["text"], colors: card["colors"])
+  file = URI.open(card["imageUrl"])
+  mtg_card.photo.attach(io: file, filename: "#{card["name"]}.jpg") # , content_type: 'image/jpg'
+   puts "#{mtg_card.id} is created"
+end
+
+puts "done!"

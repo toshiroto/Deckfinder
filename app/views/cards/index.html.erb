@@ -1,0 +1,19 @@
+<div class="container">
+<br>
+  <h2>Card list</h2>
+  <br>
+    <div class="row">
+      <% @cards.each do |card| %>
+        <div class="col-12 col-lg-4 card-product">
+          <div class="mtg-card-img">
+            <%# <% if card.imageUrl.nil? %>
+              <%# <%= image_tag card.imageUrl %>
+            <%# <% end %>
+          </div>
+          <div class="mtg-card-name card-product-infos">
+            <h2><%= link_to card.name, card_path(card) %></h2>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>

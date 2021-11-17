@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-12 col-lg-12 card-product-detail mt-3">
+    <div class="mtg-card-img">
+      <%# <% if @card.any? %>
+        <%# <%= image_tag @card.imageUrl %>
+      <%# <% end %>
+    </div>
+    <div class="mtg-card-name card-product-infos-detail">
+      <h1><%= @card.name %></h1>
+      <br>
+      <br>
+      <h2>Description: <i><%= @card.text %></i></h2>
+      <br>
+      <h2>Type: <%= @card.colors %></h2>
+      <br>
+      <%= link_to cards_path, class: "btn btn-primary" do%>
+        <div>Go back</div>
+      <% end %>
+    </div>
+  </div>
+</div>
