@@ -17,6 +17,7 @@
         <% @decks.each do |deck| %>
         <% if deck.user != current_user%>
           <div class="card-body">
+            <%= render 'sample_image'%>
             <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
             <%# <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %>
             <p class="card-text">$<%= deck.price %></p>
@@ -45,7 +46,7 @@
           <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
           <p class="card-text">$<%= deck.price %></p>
           <p class="card-text"><%= deck.desc %></p>
-          <a class="btn btn-primary">Manage Rentals</a>
+          <%# <%= link_to "Manage Rental", edit_rental_path(), class:"btn btn-primary"%> %>
         </div>
          <% end %>
       <% end %>

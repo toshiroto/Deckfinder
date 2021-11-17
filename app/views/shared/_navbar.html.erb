@@ -7,6 +7,9 @@
       <%= link_to "Decks", decks_path, class: "nav-link link-red" %>
     </li>
     <li class="nav-item active">
+      <%= link_to "My Rental list", rentals_path, class: "nav-link link-red" %>
+    </li>
+    <li class="nav-item active">
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link link-red" %>
     </li>
 <% else %>
