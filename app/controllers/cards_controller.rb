@@ -2,9 +2,9 @@ class CardsController < ApplicationController
   before_action :find_card, only: [:show]
   before_action :set_deck, only: [:show]
 
-  def index
-    @cards = policy_scope(Card)
-  end
+  # def index
+  #   @cards = policy_scope(Card)
+  # end
 
   def show
   end

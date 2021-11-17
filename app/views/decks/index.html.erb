@@ -22,7 +22,12 @@
             <p class="card-text">$<%= deck.price %></p>
             <p class="card-text"><%= deck.desc %></p>
             <%# <% <a href="#" class="btn btn-primary">Request Rental</a> %>
+            <% condition_arr = current_user.rentals.find {|rental| rental.deck == deck } %>
+            <% if condition_arr == nil %>
             <%= link_to "Request Rental",  new_deck_rental_path(deck), class:"btn btn-primary" %>
+            <% else %>
+            <p>Requested to rent</p>
+            <% end %>
           </div>
         <% end %>
       <% end %>

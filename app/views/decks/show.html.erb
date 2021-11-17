@@ -1,31 +1,26 @@
-<div class="container justify-items-center">
-  <%# <% raise %>
-  <p style="font-size: 24px"><%= @deck.name %></p>
-  <p><%= @deck.desc %></p>
-  <p>$<%= @deck.price %></p>
-    <% @deck.rentals.each do |rental| %>
-      <% if rental[:user_id] == current_user.id %>
-        <p style="color:red;"><%= link_to "Check Status", rental_path(rental), class: "btn btn-primary"%></h1>
-      <% end %>
-    <%end%>
-    <div>
-      <%= link_to decks_path do %>
-      <i class="fas fa-caret-square-left"></i>
-    <% end %>
-    </div>
-    <div>
-      <% if policy(@deck).destroy? %>
-          <%= link_to "Delete", deck_path, class: "btn btn-primary", method: :delete,
-            data: { confirm: "Are you sure?" } %>
-      <% end %>
+<div class="container">
+<div class="d-flex justify-content-between">
+  <div>
+    <p style="font-size: 24px"><%= @deck.name %></p>
+    <p>Rental Price: $<%= @deck.price %></p>
     </div>
 
-      <h1>"<%= @deck.name %>" Deck </h1>
-  <br>
+    <div>
+      <% @deck.rentals.each do |rental| %>
+        <% if rental[:user_id] == current_user.id %>
+          <p style="color:red;"><%= link_to "Check Status", rental_path(rental), class: "btn btn-primary"%></h1>
+        <% end %>
+      <%end%>
+      <% if policy(@deck).destroy? %>
+        <%= link_to "Delete the Deck", deck_path, class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+  </div>
+
 <div class="row">
   <% if @deck.structures.any? %>
     <% @deck.structures.each do |structure| %>
-      <div class="img-container col-12 col-lg-4 mt-5">
+      <div class="col-12 col-lg-4 mt-5">
       <%= image_tag structure.card.imageUrl, alt: "card", width: 200 %>
       <br>
       <br>
@@ -43,10 +38,11 @@
   <% end %>
 </div>
 <br>
+<% if current_user == @deck.user%>
 <%= link_to "Add a card",  new_deck_structure_path(@deck), class:"btn btn-outline-dark" %>
-</br>
-</br>
-<%= link_to decks_path do%>
-<p><i class="fas fa-undo"></i></p>
 <% end %>
-</div>
+</br>
+</br>
+<%= link_to decks_path do %>
+  <i class="fas fa-caret-square-left"></i>
+<% end %>
