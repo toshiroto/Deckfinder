@@ -104,7 +104,7 @@ require 'json'
 require 'open-uri'
 require 'uri'
 
-puts 'Creating cards now'
+puts 'Creating cards now white'
 
 url = "https://api.magicthegathering.io/v1/cards?colorIdentity=%22W%22"
 card_serialized = URI.open(url).read
@@ -115,10 +115,71 @@ cards = mtg["cards"] # array of cards
 puts 'creating cards'
 
 cards.first(7).each do |card|
+
   mtg_card = Card.create(name: card["name"], imageUrl: card["imageUrl"], text: card["text"], colors: card["colors"])
   file = URI.open(card["imageUrl"])
-  mtg_card.photo.attach(io: file, filename: "#{card["name"]}.jpg") # , content_type: 'image/jpg'
+  # mtg_card.photo.attach(io: file, filename: "#{card["name"]}.jpg") # , content_type: 'image/jpg'
    puts "#{mtg_card.id} is created"
 end
 
 puts "done!"
+
+# puts 'Creating cards now Black'
+
+# url = "https://api.magicthegathering.io/v1/cards?colorIdentity=%22B%22"
+# card_serialized = URI.open(url).read
+# mtg = JSON.parse(card_serialized)
+
+# cards = mtg["cards"] # array of cards
+
+# puts 'creating cards'
+
+# cards.first(7).each do |card|
+
+#   mtg_card = Card.create(name: card["name"], imageUrl: card["imageUrl"], text: card["text"], colors: card["colors"])
+#   file = URI.open(card["imageUrl"])
+#   mtg_card.photo.attach(io: file, filename: "#{card["name"]}.jpg") # , content_type: 'image/jpg'
+#    puts "#{mtg_card.id} is created"
+# end
+
+# puts "done!"
+
+# puts 'Creating cards now Green'
+
+# url = "https://api.magicthegathering.io/v1/cards?colorIdentity=%22G%22"
+# card_serialized = URI.open(url).read
+# mtg = JSON.parse(card_serialized)
+
+# cards = mtg["cards"] # array of cards
+
+# puts 'creating cards'
+
+# cards.first(7).each do |card|
+
+#   mtg_card = Card.create(name: card["name"], imageUrl: card["imageUrl"], text: card["text"], colors: card["colors"])
+#   file = URI.open(card["imageUrl"])
+#   mtg_card.photo.attach(io: file, filename: "#{card["name"]}.jpg") # , content_type: 'image/jpg'
+#    puts "#{mtg_card.id} is created"
+# end
+
+# puts "done!"
+
+# puts 'Creating cards now Red'
+
+# url = "https://api.magicthegathering.io/v1/cards?colorIdentity=%22R%22"
+# card_serialized = URI.open(url).read
+# mtg = JSON.parse(card_serialized)
+
+# cards = mtg["cards"] # array of cards
+
+# puts 'creating cards'
+
+# cards.first(7).each do |card|
+
+#   mtg_card = Card.create(name: card["name"], imageUrl: card["imageUrl"], text: card["text"], colors: card["colors"])
+#   file = URI.open(card["imageUrl"])
+#   mtg_card.photo.attach(io: file, filename: "#{card["name"]}.jpg") # , content_type: 'image/jpg'
+#    puts "#{mtg_card.id} is created"
+# end
+
+# puts "done!"

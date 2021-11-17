@@ -8,8 +8,9 @@ class StructurePolicy < ApplicationPolicy
   def create?
     # user_rented_already?
     # raise
-    user == @deck.user
-    
+    # user == @deck.user
+    true
+
   end
 
   # def show?
