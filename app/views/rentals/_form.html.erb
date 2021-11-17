@@ -1,5 +1,5 @@
 <%= simple_form_for [@deck, @rental] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.input :start_date, :as => :date, :start_year => Date.today.year %>
+    <%= f.input :end_date, :as => :date, :start_year => Date.today.year %>
     <%= f.submit "Request Rental", class: "btn btn-primary" %>
 <% end %>
