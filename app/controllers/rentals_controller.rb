@@ -18,7 +18,7 @@ def index
     @rental.user = current_user
     authorize @rental
     if @rental.save
-      redirect_to decks_path
+      redirect_to rentals_path
     else
       render :new
     end
@@ -41,6 +41,12 @@ def index
 
   def edit
     # @rental = Rental.find(params[:id])
+  end
+
+  def destroy
+    @rental = Rental.find(params[:id])
+    @rental.destroy
+    authorize @rental
   end
 
 
