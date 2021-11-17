@@ -24,6 +24,13 @@ class DecksController < ApplicationController
   def show
   end
 
+  def destroy
+    @deck = Deck.find(params[:id])
+    @deck.destroy
+    redirect_to decks_path
+    authorize @deck
+  end
+
   private
 
   def deck_params

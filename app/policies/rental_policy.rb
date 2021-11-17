@@ -6,6 +6,8 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def create?
+    # user_rented_already?
+    # raise
     true
   end
 
