@@ -23,10 +23,10 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
-.nav-link {
-  color: $red;
+a {
+  color: $purple;
 }
 
-.card {
-  background-color: whitesmoke;
+.navbar-light .navbar-nav .active > .nav-link {
+  color: $red;
 }

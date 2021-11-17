@@ -1,6 +1,9 @@
 <div class="container">
-  <h1><%= @rental.status %></h1>
+  <p style="font-size: 24px">Your rental of <%= @rental.deck.name %> is <strong><%= @rental.status %></strong>.</p>
+  <p style="font-size: 18px">Rental details:</p>
+  <p><strong>Starts:</strong> <%= @rental.start_date %></p>
+  <p><strong>Ends:</strong> <%= @rental.end_date %></p>
   <%= link_to decks_path do %>
-      <i class="fas fa-undo"></i>
+      <i class="fas fa-caret-square-left"></i>
   <% end %>
 </div>
