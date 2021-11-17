@@ -1,17 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <h3 class="nav-link"><%= link_to "Deckfinder", root_path, class: "navbar-brand" %></h3>
+  <h3 class="nav-link link-red"><%= link_to "Deckfinder", root_path, class: "navbar-brand" %></h3>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 <% if user_signed_in? %>
     <li class="nav-item active">
-      <%= link_to "Decks", decks_path, class: "nav-link" %>
+      <%= link_to "Decks", decks_path, class: "nav-link link-red" %>
     </li>
     <li class="nav-item active">
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link link-red" %>
     </li>
 <% else %>
     <li class="nav-item active">
-      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      <%= link_to "Login", new_user_session_path, class: "nav-link link-red" %>
     </li>
   <% end %>
     </ul>

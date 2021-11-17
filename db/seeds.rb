@@ -21,14 +21,6 @@ michiharu_ono.save!
 carlos_topete = User.new(email: "chtopete@gmail.com", password: "123098")
 carlos_topete.save!
 
-# 10.times { Deck.create(
-#     name: Faker::Music::Prince.album,
-#     desc: Faker::Quotes::Chiquito.joke,
-#     price: rand(1..100),
-#     user_id: joss_dixon.id
-#   )
-# }
-
 # 5.times { Deck.create(
 #     name: Faker::Music::Prince.album,
 #     desc: Faker::Quotes::Chiquito.joke,
