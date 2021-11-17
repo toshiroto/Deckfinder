@@ -22,8 +22,8 @@ carlos_topete = User.new(email: "chtopete@gmail.com", password: "123098")
 carlos_topete.save!
 
 10.times { Deck.create(
-    name: Faker::Music::Prince.album,
-    desc: Faker::Quotes::Chiquito.joke,
+    name: Faker::Games::StreetFighter.move,
+    desc: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
     price: rand(1..100),
     user_id: joss_dixon.id
   )
@@ -31,7 +31,7 @@ carlos_topete.save!
 
 5.times { Deck.create(
     name: Faker::Music::Prince.album,
-    desc: Faker::Quotes::Chiquito.joke,
+    desc: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
     price: rand(1..100),
     user_id: carlos_topete.id
   )

@@ -29,6 +29,20 @@ a:hover {
  * Base structure
  */
 
+.cover-heading {
+  text-shadow: 0px 0px 5px 5px black;
+
+}
+
+.lead {
+  padding-top: 10px;
+  line-height: 2em;
+}
+
+.center {
+  padding: 20px ;
+  text-align: center;
+}
 
 body {
   color: $purple;
@@ -58,24 +72,4 @@ body {
   .nav-masthead {
     float: right;
   }
-}
-
-
-/*
- * Cover
- */
-.cover {
-  padding: 0 1.5rem;
-}
-.cover .btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: 700;
-}
-
-
-/*
- * Footer
- */
-.mastfoot {
-  color: $gray;
 }
