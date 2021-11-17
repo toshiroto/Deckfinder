@@ -26,4 +26,5 @@ class RentalPolicy < ApplicationPolicy
   def user_is_admin?
     user.admin?
   end
+
 end

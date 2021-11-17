@@ -3,15 +3,21 @@
   <p style="font-size 24px"><%= @deck.name %></p>
   <p><%= @deck.desc %></p>
   <p>$<%= @deck.price %></p>
-  
+
     <% @deck.rentals.each do |rental| %>
-    <% if rental[:user_id] == current_user.id %>
-      <p style="color:red;"><%= link_to "Check Status", rental_path(rental), class: "btn btn-primary"%></h1>
+      <% if rental[:user_id] == current_user.id %>
+        <p style="color:red;"><%= link_to "Check Status", rental_path(rental), class: "btn btn-primary"%></h1>
+      <% end %>
+    <%end%>
+    <div>
+      <%= link_to decks_path do %>
+      <i class="fas fa-caret-square-left"></i>
     <% end %>
-  <%end%>
-  <div>
-  <%= link_to decks_path do %>
-  <i class="fas fa-caret-square-left"></i>
-<% end %>
-</div>
+    </div>
+    <div>
+      <% if policy(@deck).destroy? %>
+          <%= link_to "Delete", deck_path, class: "btn btn-primary", method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
 </div>

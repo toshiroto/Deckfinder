@@ -8,12 +8,16 @@ class DeckPolicy < ApplicationPolicy
   # def new?
   #   create?
   # end
-  
+
   def create?
     true
   end
 
   def show?
     true
+  end
+
+  def destroy?
+    record.user == user
   end
 end
