@@ -8,4 +8,8 @@
       <%= f.input :status, collection: Rental.statuses.keys %>
       <%= f.submit "Enter", class: "btn btn-primary" %>
     <% end %>
+    <%= link_to decks_path do %>
+  <i class="fas fa-caret-square-left"></i>
+<% end %>
+
 </div>

@@ -20,7 +20,7 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user_created_rental? || user_is_admin?
+    user_created_rental?
   end
 
   private
