@@ -28,8 +28,9 @@ def index
     @rental = Rental.find(params[:id])
     @rental.update(rental_params)
     authorize @rental
+
     if @rental.save
-      redirect_to decks_path
+      redirect_to deck_path(@rental.deck)
     else
       render :edit
     end
@@ -53,7 +54,7 @@ def index
 
 private
   def rental_params
-    params.require(:rental).permit(:deck_id, :user_id, :start_date, :end_date)
+    params.require(:rental).permit(:deck_id, :user_id, :start_date, :end_date, :status)
   end
 
   def set_rental

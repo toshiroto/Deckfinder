@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex justify-content-between">
-    <h1 style="font-size: 24px"><%= @deck.name %></h1>
+    <h1>Rental Status</h1>
     <br>
     <div>
       <% @deck.rentals.each do |rental| %>
@@ -29,7 +29,11 @@
                 <td><%= rental.user.email %></td>
                 <td><%= rental.start_date %></td>
                 <td><%= rental.end_date %></td>
-                <td><%= rental.status %></td>
+                <%if rental.status == "approved"%>
+                  <td style="background-color:red:"><%= rental.status %></td>
+                <% else %>
+                  <td><%= rental.status %></td>
+                <% end %>
                 <td><%= link_to edit_rental_path(rental) do %>
                 <i class="fas fa-edit"></i>
                 <% end %>
