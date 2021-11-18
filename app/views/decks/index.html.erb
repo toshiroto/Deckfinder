@@ -40,20 +40,16 @@
       <div>
   </div>
       </div>
-     <% @decks.each do |deck| %>
-      <% if deck.user == current_user%>
+     <% @owned_decks.each do |deck| %>
         <div class="card-body">
           <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
           <p class="card-text">$<%= deck.price %></p>
           <p class="card-text"><%= deck.desc %></p>
-          <% deck.rentals.each do |rental|%>
-            <%if rental.deck.user == current_user%>
-              <%= link_to "Manage Rental", edit_rental_path(rental), class:"btn btn-primary"%>
-            <% end %>
-          <% end %>
+          <%# deck.rentals.each do |rental|%>
+              <%#= link_to "Manage Rental", edit_rental_path(rental), class:"btn btn-primary"%>
+          <%# end %>
           <%# <%= link_to "Edit deck", deck_path(deck), class:"btn btn-primary"%>
         </div>
-         <% end %>
       <% end %>
     </div>
 
