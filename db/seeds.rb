@@ -8,8 +8,12 @@
 
 
 puts "Cleaning database..."
+Structure.destroy_all
+Rental.destroy_all
 Deck.destroy_all
 User.destroy_all
+Card.destroy_all
+
 puts 'database is clean'
 puts 'creating Decks'
 puts 'creating Users'
@@ -114,7 +118,7 @@ cards = mtg["cards"] # array of cards
 
 puts 'creating cards'
 
-cards.first(7).each do |card|
+cards.first(30).each do |card|
 
   mtg_card = Card.create(name: card["name"], imageUrl: card["imageUrl"], text: card["text"], colors: card["colors"])
   file = URI.open(card["imageUrl"])
