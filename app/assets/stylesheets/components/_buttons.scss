@@ -1,0 +1,27 @@
+.btn-ghost {
+  color: $white;
+  border: 1px solid $blue;
+  padding: 8px 24px;
+  border-radius: 25px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: background-color 1s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+  background-color: $red;
+  color: $black;
+}
+
+.btn-login {
+  color: $white;
+  background-color: $blue;
+  a {
+    color: $blue;
+  }
+  &:hover {
+    background-color: $red;
+  }
+
+}

@@ -1,13 +1,8 @@
-<body style="background-image: url(https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iO.LroVdEVuI/v2/-1x-1.jpg)">
-  <div class="container mt-5">
-    <div class="center">
-      <h1 class="cover-heading">Your Decks Are Waiting</h1>
-      <p class="lead">More Magic than you could imagine. Play The Gathering like never before.</p>
-    <%# <footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p>Made by Michi, Carlos, and Joss.</p>
-    </div>
-  </footer> %>
-    </div>
+<div class="home-video-wrapper">
+  <%= video_tag "magicvideo.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
+  <div class="container text-center">
+    <h1 id="home-title"><strong>Your Decks Are Waiting</strong></h1>
+    <p id="home-sub">More Magic than you could imagine. Play The Gathering like never before.</p>
   </div>
-</body>
+
+</div>

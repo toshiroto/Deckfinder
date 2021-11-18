@@ -1,75 +1,58 @@
-// Specific CSS for your home-page
-/*
- * Globals
- */
-
-/* Links */
 a {
-  color: $purple;
+  color: $blue;
 }
 
 a:focus,
 a:hover {
-  color: $red;
+  color: $yellow;
   text-decoration: none;
 }
 
-/* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: $light-blue;
+  color: $red;
   text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: $purple;
+  background-color: $blue;
   border-radius: 10px;
 }
-
-
-/*
- * Base structure
- */
 
 .cover-heading {
   text-shadow: 0px 0px 5px 5px black;
 
 }
 
-.lead {
-  padding-top: 10px;
-  line-height: 2em;
-}
-
-.center {
-  padding: 20px ;
-  text-align: center;
-}
-
-body {
-  color: $purple;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  background-color: $light-blue;
-  padding-bottom: 20px;
-}
-
 .cover-container {
   max-width: 42em;
 }
-/*
- * Header
- */
-.masthead {
-  margin-bottom: 2rem;
+
+#home-title {
+  color: $white;
+  font-size: 3em;
+  text-shadow: 1px 1px 7px $black;
 }
 
-.masthead-brand {
-  margin-bottom: 0;
+#home-sub {
+  color: $white;
+  font-size: 1.5em;
+  text-shadow: 1px 1px 7px $black;
 }
 
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
+.home_video {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    object-fit: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
+
+.home-video-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
