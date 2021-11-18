@@ -53,8 +53,10 @@
           <br>
             <p><%= structure.card.name %></p>
             <br>
-            <%= link_to deck_structure_path(structure), method: :delete, data: { confirm: "Do you want to delete #{structure.card.name}" } do %>
-              <i class="far fa-trash-alt"></i>
+            <% if policy(@deck).destroy? %>
+              <%= link_to deck_structure_path(structure), method: :delete, data: { confirm: "Do you want to delete #{structure.card.name}" } do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
             <% end %>
           <br>
           <br>
