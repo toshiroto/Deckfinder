@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex justify-content-between">
-    <h1>Rental Status</h1>
+    <p style="font-size: 32px">Rental Status</p>
     <br>
     <div>
       <% @deck.rentals.each do |rental| %>
@@ -10,6 +10,7 @@
       <%end%>
     </div>
 </div>
+<div class="container">
       <% if @deck.user == current_user%>
           <table class="table table-hover">
           <thead>
@@ -43,6 +44,7 @@
           </tbody>
         </table>
       <% end %>
+</div>
 <div><p>Rental Price: $<%= @deck.price %></p></div>
   <div class="row">
       <% if @deck.structures.any? %>

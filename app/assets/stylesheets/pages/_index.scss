@@ -7,7 +7,7 @@
 }
 .tabs-underlined {
   .tab-underlined {
-    color: $black;
+    color: $blue;
     padding: 8px;
     margin: 8px 16px;
     opacity: .4;
@@ -21,7 +21,7 @@
   }
   .tab-underlined.active {
     opacity: 1;
-    border-bottom: 3px solid $black;
+    border-bottom: 3px solid $blue;
   }
 }
 
@@ -34,6 +34,13 @@
   padding: 10px 20px;
 }
 
-.card-body {
-  box-shadow: 0.5px 0.5px 2px 0.5px $black;
+a {
+  color: $blue;
+  transition: color 0.5s;
+  text-decoration: none;
+
+  &:hover {
+    color: $red;
+    text-decoration: none;
+  }
 }

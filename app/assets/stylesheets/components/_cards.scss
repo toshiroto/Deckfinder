@@ -7,9 +7,11 @@
 .card-body {
   order: 3;
   flex-grow: 1;
-  background-color: whitesmoke;
-  border-radius: 10px;
+  background-color: $white;
+  border-radius: 5px;
   margin: 10px;
+  border-bottom: thick solid $blue;
+  box-shadow: 0.5px 0.5px 1px 1px lightgrey;
 }
 
 // Smallest device

@@ -1,6 +1,9 @@
 <div class="container">
   <p style="font-size: 24px">Your rental of <%= @rental.deck.name %> is <strong><%= @rental.status %></strong>.</p>
-  <p style="font-size: 18px">Rental details:</p>
+  <p style="font-size: 18px"><strong>Deck details:</strong></p>
+  <p>Owned by <strong><%= @rental.deck.user.first_name.capitalize %> <%= @rental.deck.user.last_name.capitalize %>.</strong></p>
+  <p>Current rentals for this deck: <strong><%= @rental.deck.rentals.count %></strong></p>
+  <p style="font-size: 18px"><strong>Your Booking:</strong></p>
   <p><strong>Starts:</strong> <%= @rental.start_date %></p>
   <p><strong>Ends:</strong> <%= @rental.end_date %></p>
   <%= link_to decks_path do %>
