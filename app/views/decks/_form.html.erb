@@ -1,7 +1,7 @@
 <%= simple_form_for @deck do |f| %>
-  <%= f.input :name %>
-  <%= f.input :desc %>
-  <%= f.input :price, input_html: { min: 0 }%>
+  <%= f.input :name, label: "Name of the deck" %>
+  <%= f.input :desc, label: "Deck description" %>
+  <%= f.input :price, label: "Rental price per day", input_html: { min: 0 } %>
 
- <%= f.submit "Create", class: "btn btn-primary" %>
+ <%= f.submit "Create Deck", class: "btn btn-primary" %>
 <% end %>

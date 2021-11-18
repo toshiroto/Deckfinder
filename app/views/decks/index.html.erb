@@ -1,30 +1,45 @@
 <div class="container">
-    <ul class="nav tabs-underlined" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-      <a class="active tab-underlined" id="player-tab" data-toggle="tab" href="#player" role="tab" aria-controls="player" aria-selected="true">Player</a>
-      </li>
-      <li class="nav-item" role="presentation">
-      <a class="tab-underlined" id="owner-tab" data-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="false">Owner</a>
-      </li>
-    </ul>
-  </div>
+  <div class="row d-flex justify-content-between">
+
+      <ul class="nav tabs-underlined" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+        <a class="active tab-underlined" id="player-tab" data-toggle="tab" href="#player" role="tab" aria-controls="player" aria-selected="true">Player</a>
+        </li>
+        <li class="nav-item" role="presentation">
+        <a class="tab-underlined" id="owner-tab" data-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="false">Owner</a>
+        </li>
+      </ul>
+
+      <div class="search-form-control form-group">
+        <%= form_tag decks_path, method: :get do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a deck name" %>
+        <%= submit_tag 'Search', class: "btn btn-login" %>
+      </div>
+      <% end %>
+    </div>
+
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade py-3 show active" id="player" role="tabpanel" aria-labelledby="player-tab">
       <%# Creating a condition where a user does not see his/her own deck in a player list %>
         <% @decks.each do |deck| %>
         <% if deck.user != current_user%>
           <div class="card-body">
-            <%= render 'sample_image'%>
-            <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
+            <div class="d-flex justify-content-between align-items-center">
+                <p style="font-size: 24px" class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
+                <%= render 'sample_image'%>
+            </div>
             <%# <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %>
-            <p class="card-text">$<%= deck.price %></p>
+            <p class="card-text" style="font-size: 18px"><em>$<%= deck.price %> per day</em></p>
             <p class="card-text"><%= deck.desc %></p>
-            <%# <% <a href="#" class="btn btn-primary">Request Rental</a> %>
+            <%# <% <a href="#" class="btn btn-request">Request Rental</a> %>
             <% condition_arr = current_user.rentals.find {|rental| rental.deck == deck } %>
             <% if condition_arr == nil %>
-            <%= link_to "Request Rental",  new_deck_rental_path(deck), class:"btn btn-outline-primary" %>
+            <%= link_to "Request Rental",  new_deck_rental_path(deck), class:"btn btn-request" %>
             <% else %>
-            <%= link_to "pending",  rentals_path, class:"btn btn-primary" %>
+            <%= link_to "Rental Pending",  rentals_path, class:"btn btn-pending" %>
             <% end %>
           </div>
         <% end %>
@@ -33,7 +48,7 @@
 
     <div class="tab-pane fade py-3" id="owner" role="tabpanel" aria-labelledby="owner-tab">
       <div class="card-body">
-        <%= link_to "New Deck", new_deck_path, class:"btn btn-primary" %>
+        <%= link_to "New Deck", new_deck_path, class:"btn btn-request" %>
       <div>
   </div>
       </div>
