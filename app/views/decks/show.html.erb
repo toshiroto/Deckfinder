@@ -1,9 +1,7 @@
 <div class="container">
 <div class="d-flex justify-content-between">
-  <div>
-    <p style="font-size: 24px"><%= @deck.name %></p>
-    <p>Rental Price: $<%= @deck.price %></p>
-    </div>
+    <h1 style="font-size: 24px"><%= @deck.name %></h1>
+    <br>
 
     <div>
       <% @deck.rentals.each do |rental| %>
@@ -20,30 +18,31 @@
     <table class="table table-hover">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
+        <th>Name</th>
         <th>Email</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Current Status</th>
+        <th>Change Status</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+      <% @deck.rentals.each do |rental|%>
+        <tr>
+          <td><%= rental.user.first_name %> <%= rental.user.last_name %></td>
+          <td><%= rental.user.email %></td>
+          <td><%= rental.start_date %></td>
+          <td><%= rental.end_date %></td>
+          <td><%= rental.status %></td>
+          <td><%= link_to edit_rental_path(rental) do %>
+          <i class="fas fa-edit"></i>
+           <% end %>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
-
+<p>Rental Price: $<%= @deck.price %></p>
 <div class="row">
   <% if @deck.structures.any? %>
     <% @deck.structures.each do |structure| %>
