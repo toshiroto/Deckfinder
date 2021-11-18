@@ -3,7 +3,7 @@
     <%# <% @rentals.last(1).reverse_each do |rental| %>
     <h1>Your Submitted Request</h1>
     <%# <div class="col-12 col-lg-4 mt-5" style="background-color:#FFFACD;">
-        <% if rental.user == current_user %> 
+        <% if rental.user == current_user %>
           <%# <p><%= rental.deck.name %></p>
           <%# <p>Status: <%= rental.status %></p>
           <%# <p>Request date: <%= rental.created_at %></p>
@@ -17,8 +17,13 @@
         <div class="col-12 col-lg-4 mt-5">
           <% if rental.user == current_user %>
             <p><%= rental.deck.name %></p>
-            <p>Status: <%= rental.status %></p>
+            <%if rental.status == "pending"%>
+              <p>Status: <span style="background-color: #F58F8F;"><%= rental.status %></p></p>
+            <% else %>
+              <p>Status: <span style="background-color: #B2EF9B;"><%= rental.status %></p></p>
+            <% end %>
             <p>Request date: <%= rental.created_at %></p>
+            <p>Request peirod: <%= rental.start_date %>~<%= rental.end_date %></p>
             <%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Do you want to delete #{rental.deck.name}" }, class:"btn btn-primary"%>
           <% end %>
         </div>
