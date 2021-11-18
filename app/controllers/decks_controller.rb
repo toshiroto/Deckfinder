@@ -2,7 +2,11 @@ class DecksController < ApplicationController
   before_action :set_deck, only: [:show]
   def index
     # @decks = Deck.all
-    @decks = policy_scope(Deck)
+    if params[:query].present?
+      @decks = policy_scope(Deck).global_search(params[:query])
+    else
+      @decks = policy_scope(Deck)
+    end
   end
 
   def new
