@@ -3,6 +3,8 @@ class DecksController < ApplicationController
   def index
     # @decks = Deck.all
     @decks = policy_scope(Deck)
+    @rented_decks = current_user.rented_decks
+    @owned_decks = current_user.owned_decks
   end
 
   def new
