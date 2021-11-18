@@ -43,7 +43,7 @@
           </tbody>
         </table>
       <% end %>
-<div><p>Rental Price: $<%= @deck.price %></p></div>
+<div><p>Rental Price: <span style="background-color: #B2EF9B;">$<%= @deck.price %></p></p></div>
   <div class="row">
       <% if @deck.structures.any? %>
         <% @deck.structures.each do |structure| %>
