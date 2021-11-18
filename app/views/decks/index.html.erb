@@ -46,7 +46,12 @@
           <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
           <p class="card-text">$<%= deck.price %></p>
           <p class="card-text"><%= deck.desc %></p>
-          <%= link_to "Manage Rental", edit_rental_path(deck.rentals.last), class:"btn btn-primary"%>
+          <% deck.rentals.each do |rental|%>
+            <%if rental.deck.user == current_user%>
+              <%= link_to "Manage Rental", edit_rental_path(rental), class:"btn btn-primary"%>
+            <% end %>
+          <% end %>
+          <%# <%= link_to "Edit deck", deck_path(deck), class:"btn btn-primary"%>
         </div>
          <% end %>
       <% end %>
