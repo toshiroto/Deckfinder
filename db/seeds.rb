@@ -14,11 +14,11 @@ puts 'database is clean'
 puts 'creating Decks'
 puts 'creating Users'
 
-joss_dixon = User.new(email: "jossdixon@gmail.com", password: "123456")
+joss_dixon = User.new(first_name:"joss", last_name:"dixon", email: "jossdixon@gmail.com", password: "123456")
 joss_dixon.save!
-michiharu_ono = User.new(email: "michiharuono77@gmail.com", password: "567890")
+michiharu_ono = User.new(first_name:"michiharu", last_name:"ono",email: "michiharuono77@gmail.com", password: "567890")
 michiharu_ono.save!
-carlos_topete = User.new(email: "chtopete@gmail.com", password: "123098")
+carlos_topete = User.new(first_name:"carlos", last_name:"topete",email: "chtopete@gmail.com", password: "123098")
 carlos_topete.save!
 
 # 5.times { Deck.create(
