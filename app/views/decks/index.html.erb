@@ -42,8 +42,6 @@
           <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
           <p class="card-text">$<%= deck.price %></p>
           <p class="card-text"><%= deck.desc %></p>
-
-          <%= link_to "Manage Rental", edit_rental_path(deck), class:"btn btn-primary"%>
         </div>
       <% end %>
     </div>
