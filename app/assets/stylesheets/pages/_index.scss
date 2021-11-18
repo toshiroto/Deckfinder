@@ -7,7 +7,7 @@
 }
 .tabs-underlined {
   .tab-underlined {
-    color: $purple;
+    color: $black;
     padding: 8px;
     margin: 8px 16px;
     opacity: .4;
@@ -21,19 +21,17 @@
   }
   .tab-underlined.active {
     opacity: 1;
-    border-bottom: 3px solid $purple;
+    border-bottom: 3px solid $black;
   }
 }
 
 .container {
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: $gray;
   border-radius: 10px;
   margin-top:10px;
   width: 100vw;
   padding: 10px 20px;
-  box-shadow: inset 0px 0px 2px 0.5px $black;
 }
 
 .card-body {
