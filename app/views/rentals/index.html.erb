@@ -18,6 +18,8 @@
           <% if rental.user == current_user %>
             <p><%= rental.deck.name %></p>
             <%if rental.status == "pending"%>
+              <p>Status: <span style="background-color: #3F88C5;"><%= rental.status %></p></p>
+            <%elsif rental.status == "rejected"%>
               <p>Status: <span style="background-color: #F58F8F;"><%= rental.status %></p></p>
             <% else %>
               <p>Status: <span style="background-color: #B2EF9B;"><%= rental.status %></p></p>
