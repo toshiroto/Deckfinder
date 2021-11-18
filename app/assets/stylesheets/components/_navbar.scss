@@ -8,6 +8,10 @@
   }
 }
 
+#nav-deckfinder {
+  font-size: 24px;
+}
+
 .navbar-lewagon .nav-item-active {
   color: $black;
 }
@@ -18,4 +22,19 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.dropdown-menu {
+  padding: 0px;
+}
+
+.dropdown-item {
+  line-height: 2;
+  background-color: $blue;
+  color: $white;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: $red;
+    color: $black;
+  }
 }
