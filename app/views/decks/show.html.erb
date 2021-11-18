@@ -84,7 +84,7 @@
       <%= link_to decks_path do %>
         <div><i class="fas fa-caret-square-left"></i></div>
       <% end %>
-      <% if @deck.rentals == []%>
+      <% if @deck.rentals == [] && current_user == @deck.user %>
           <%= link_to "Delete the Deck", deck_path, class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
 </div>
