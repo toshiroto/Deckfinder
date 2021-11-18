@@ -46,6 +46,7 @@ def index
   def destroy
     @rental = Rental.find(params[:id])
     @rental.destroy
+    redirect_to rentals_path
     authorize @rental
   end
 

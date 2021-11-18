@@ -6,4 +6,17 @@ class Deck < ApplicationRecord
 
   validates :name, presence: true
   validates :desc, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: {
+      name: 'A',
+      desc: 'B'
+    },
+    associated_against: {
+      cards: [ :name, :text ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
