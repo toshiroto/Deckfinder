@@ -25,7 +25,7 @@
           <tbody>
             <% @deck.rentals.each do |rental|%>
               <tr>
-                <td><%= rental.user.first_name %> <%= rental.user.last_name %></td>
+                <td ><%= rental.user.first_name %> <%= rental.user.last_name %></td>
                 <td><%= rental.user.email %></td>
                 <td><%= rental.start_date %></td>
                 <td><%= rental.end_date %></td>
@@ -77,8 +77,10 @@
       <%= link_to decks_path do %>
         <div><i class="fas fa-caret-square-left"></i></div>
       <% end %>
-      <% if policy(@deck).destroy? %>
-        <div><%= link_to "Delete the Deck", deck_path, class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %></div>
+      <% if @deck.rentals == nil %>
+        <% if policy(@deck).destroy? %>
+          <div><%= link_to "Delete the Deck", deck_path, class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %></div>
+        <% end %>
       <% end %>
 </div>
  </div>
