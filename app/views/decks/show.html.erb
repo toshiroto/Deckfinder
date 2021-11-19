@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex justify-content-between">
-    <p style="font-size: 32px">Rental Status</p>
+    <p style="font-size: 32px"><%= @deck.name %></p>
     <br>
     <div>
       <% @deck.rentals.each do |rental| %>
