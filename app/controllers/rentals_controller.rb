@@ -28,13 +28,11 @@ def index
     @rental = Rental.find(params[:id])
     @rental.update(rental_params)
     authorize @rental
-
     if @rental.save
       redirect_to deck_path(@rental.deck)
     else
       render :edit
     end
-
   end
 
   def show
