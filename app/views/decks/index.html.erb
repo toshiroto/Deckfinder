@@ -18,7 +18,7 @@
         </div>
       <% end %>
     </div>
-    <div class="tab-content row" id="myTabContent">
+    <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade py-3 show active" id="player" role="tabpanel" aria-labelledby="player-tab">
         <%# Creating a condition where a user does not see his/her own deck in a player list %>
         <% @decks.each do |deck| %>
@@ -56,23 +56,22 @@
             <p class="card-text">$<%= deck.price %></p>
             <p class="card-text"><%= deck.desc %></p>
             <p class="card-text" style="font-size: 18px"><small>Total Rental Requests: <strong><%= deck.rentals.count{|rental| rental.pending? && current_user!= rental.user } %></strong></small></p>
-
-              <%# if deck.rentals.find {|rental| rental.deck == deck }.status.capitalize == "Pending"%>
-                <%# <p class="card-text" style="font-size: 18px"><small>Total Rental Requests: <strong> %>
-              <%# i = 0 %>
-              <%# deck.rentals.each do |rental| %>
-                <%# if rental.status = "pending"%>
-                  <%# i += 1%>
-                <%# end %>
+            <%# if deck.rentals.find {|rental| rental.deck == deck }.status.capitalize == "Pending"%>
+            <%# <p class="card-text" style="font-size: 18px"><small>Total Rental Requests: <strong> %>
+            <%# i = 0 %>
+            <%# deck.rentals.each do |rental| %>
+              <%# if rental.status = "pending"%>
+              <%# i += 1%>
+              <%# end %>
               <%# end %>
               <%#= i %>
-            <%# </strong></small></p> %>
-            <%# else%>
+              <%# </strong></small></p> %>
+              <%# else%>
               <%# %>
               <%# end %>
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
