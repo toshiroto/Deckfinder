@@ -1,41 +1,39 @@
 <div class="container">
   <% if @rentals.any?%>
     <%# <% @rentals.last(1).reverse_each do |rental| %>
-    <h1>Your Submitted Request</h1>
-    <%# <div class="col-12 col-lg-4 mt-5" style="background-color:#FFFACD;">
+      <p style="font-size: 32px">Your Submitted Requests</p>
+      <%= link_to decks_path do %><i class="fas fa-caret-square-left"></i><% end %>
+      <%# <div class="col-12 col-lg-4 mt-5" style="background-color:#FFFACD;">
         <% if rental.user == current_user %>
-          <%# <p><%= rental.deck.name %></p>
-          <%# <p>Status: <%= rental.status %></p>
-          <%# <p>Request date: <%= rental.created_at %></p>
-          <%# <%= link_to "Cancel", decks_path, method: :delete, data: { confirm: "Do you want to delete #{rental.deck.name}" }, class:"btn btn-primary"%>
-        <%# end %>
-        <%# </div> %>
-    <%# <% end %>
-
-    <% @rentals.reverse_each do |rental| %>
-      <%if rental != @rentals.first(1)%>
-        <div class="col-12 col-lg-4 mt-5">
-          <% if rental.user == current_user %>
-            <p><%= rental.deck.name %></p>
-            <%if rental.status == "pending"%>
-              <p>Status: <span style="background-color: #3F88C5;"><%= rental.status %></p></p>
-            <%elsif rental.status == "rejected"%>
-              <p>Status: <span style="background-color: #F58F8F;"><%= rental.status %></p></p>
-            <% else %>
-              <p>Status: <span style="background-color: #B2EF9B;"><%= rental.status %></p></p>
-            <% end %>
-            <p>Request date: <%= rental.created_at %></p>
-            <p>Request peirod: <%= rental.start_date %>~<%= rental.end_date %></p>
-            <%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Do you want to delete #{rental.deck.name}" }, class:"btn btn-primary"%>
-          <% end %>
-        </div>
+      <%# <p><%= rental.deck.name %></p>
+    <%# <p>Status: <%= rental.status %></p>
+  <%# <p>Request date: <%= rental.created_at %></p>
+<%# <%= link_to "Cancel", decks_path, method: :delete, data: { confirm: "Do you want to delete #{rental.deck.name}" }, class:"btn btn-primary"%>
+<%# end %>
+<%# </div> %>
+<%# <% end %>
+<% @rentals.reverse_each do |rental| %>
+  <%if rental != @rentals.first(1)%>
+    <div class="col-12 col-lg-4 mt-5">
+      <% if rental.user == current_user %>
+        <p style="font-size: 18px">Deck Name: <strong><%= rental.deck.name %></strong></p>
+        <%if rental.status == "pending"%>
+          <p>Status: <strong><%= rental.status.capitalize %></strong></p>
+        </p>
+      <%elsif rental.status == "rejected"%>
+        <p>Status: <span style="background-color: #F58F8F;"><%= rental.status.capitalize %></p>
+        </p>
+      <% else %>
+        <p>Status: <span style="background-color: #B2EF9B;"><%= rental.status.capitalize %></p>
+        </p>
       <% end %>
+      <p>You created a request on <strong><%= rental.created_at.strftime('%A %d %B %Y') %></strong> to rent this deck from <strong><%= rental.start_date.strftime('%A %d %B %Y') %></strong> to <strong><%= rental.end_date.strftime('%A %d %B %Y') %></strong>.</p>
+      <%= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Do you want to delete #{rental.deck.name}" }, class:"btn btn-primary"%>
     <% end %>
-
-  <% else %>
-    <p>No rentals yet!</p>
-  <% end %>
-<%= link_to decks_path do %>
-  <i class="fas fa-caret-square-left"></i>
+  </div>
+<% end %>
+<% end %>
+<% else %>
+  <p>No rentals requests to show.</p>
 <% end %>
 </div>

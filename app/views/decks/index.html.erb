@@ -71,22 +71,6 @@
             <%# else%>
               <%# %>
               <%# end %>
-
-
-            <% condition_arr = current_user.rentals.find {|rental| rental.deck == deck } %>
-            <% if condition_arr == nil %>
-              <%= link_to "Request Rental",  new_deck_rental_path(deck), class:"btn btn-request" %>
-            <% else %>
-              <% condition = current_user.rentals.find {|rental| rental.deck == deck }.status.capitalize %>
-              <% case condition%>
-              <% when "Pending"%>
-              <%= link_to "#{current_user.rentals.find {|rental| rental.deck == deck }.status.capitalize}",  rentals_path, class:"btn btn-pending" %>
-              <% when "Approved"%>
-              <%= link_to "#{current_user.rentals.find {|rental| rental.deck == deck }.status.capitalize}",  rentals_path, class:"btn btn-approved" %>
-              <% else "Rejected"%>
-              <%= link_to "#{current_user.rentals.find {|rental| rental.deck == deck }.status.capitalize}",  rentals_path, class:"btn btn-dark" %>
-              <% end %>
-            <% end %>
           </div>
         <% end %>
       </div>
