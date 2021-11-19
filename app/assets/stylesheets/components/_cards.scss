@@ -10,8 +10,8 @@
   background-color: $white;
   border-radius: 5px;
   margin: 10px;
-  border-bottom: thick solid $blue;
-  box-shadow: 0.5px 0.5px 1px 1px lightgrey;
+  border-bottom: 8px solid $blue;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 // Smallest device
