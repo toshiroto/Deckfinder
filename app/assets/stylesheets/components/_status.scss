@@ -13,10 +13,19 @@
     display: flex;
     align-items: center;
   }
-  .rental-tag {
+  .rental-approved {
     margin: 1px 4px;
     padding: 2px 5px 0px 5px;
     background-color: #55aa58;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    font-weight: lighter;
+    font-size: 12px;
+  }
+  .rental-rejected {
+    margin: 1px 4px;
+    padding: 2px 5px 0px 5px;
+    background-color: #bb4f4f;
     color: rgb(255, 255, 255);
     border-radius: 8px;
     font-weight: lighter;

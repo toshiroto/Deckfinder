@@ -14,7 +14,7 @@
         <%= f.submit 'Reject', class: 'btn btn-rejected' %>
       <% end %>
   <% else %>
-      <p class='rental-tag'><%= rental.status %></p>
+      <p class= "<%= rental.approved? ? "rental-approved" : "rental-rejected" %>"><%= rental.status %></p>
   <% end %>
   </td>
 </tr>

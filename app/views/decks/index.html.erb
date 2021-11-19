@@ -28,12 +28,13 @@
                 <p style="font-size: 24px" class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
                 <%= render 'sample_image'%>
               </div>
+              <p class="card-text" style="font-size: 18px"><small>Popularity: <strong><%= deck.popularity %></strong></small></p>
               <%# <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %>
               <p class="card-text" style="font-size: 18px"><em>$<%= deck.price %> per day</em></p>
               <p class="card-text"><%= deck.desc %></p>
               <%# <p class="card-text"><%= time_ago_in_words(deck.created_at)</p> %>
               <%# <% <a href="#" class="btn btn-request">Request Rental</a> %>
-              <p class="card-text" style="font-size: 18px"><small>Total Rental Requests: <strong><%= deck.rentals.count %></strong></small></p>
+              <p class="card-text" style="font-size: 18px"><small> <strong><%= deck.rentals.count {|rental| rental.pending?} %></strong> people are requesting this deck.</small></p>
               <% condition_arr = current_user.rentals.find {|rental| rental.deck == deck } %>
               <% if condition_arr == nil %>
                 <%= link_to "Request Rental",  new_deck_rental_path(deck), class:"btn btn-request" %>
