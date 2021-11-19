@@ -51,3 +51,32 @@
     border-color: $blue;
   }
 }
+
+.btn-approved {
+  background-color: $green;
+  color: $white;
+  transition: color 0.5s;
+  &:hover {
+    color: $blue;
+    border-color: $blue;
+  }
+}
+
+.btn-rejected {
+  background-color: $red;
+  color: $white;
+  transition: color 0.5s;
+  &:hover {
+    color: $blue;
+    border-color: $blue;
+  }
+}
+
+.btn-search {
+  background-color: $white;
+  color: $blue;
+  transition: color 0.5s;
+  &:hover {
+    color: $red;
+  }
+}
