@@ -1,13 +1,14 @@
 // Import page-specific CSS files here.
 @import "home";
 
+
 .tabs-underlined {
   display: flex;
   align-items: center;
 }
 .tabs-underlined {
   .tab-underlined {
-    color: $blue;
+    color: $white;
     padding: 8px;
     margin: 8px 16px;
     opacity: .6;
@@ -15,13 +16,14 @@
     text-decoration: none;
     border-bottom: 4px solid transparent;
     display: block;
+    border-radius: 5px;
   }
   .tab-underlined:hover {
     opacity: 0.5;
   }
   .tab-underlined.active {
     opacity: 1;
-    border-bottom: 3px solid $blue;
+    border-bottom: 3px solid $white;
   }
 }
 
