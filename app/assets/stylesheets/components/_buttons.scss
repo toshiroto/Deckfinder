@@ -51,3 +51,12 @@
     border-color: $blue;
   }
 }
+
+.btn-search {
+  background-color: $white;
+  color: $blue;
+  transition: color 0.5s;
+  &:hover {
+    color: $red;
+  }
+}
