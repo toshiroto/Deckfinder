@@ -5,10 +5,11 @@
     <div>
       <% @deck.rentals.each do |rental| %>
         <% if rental.user == current_user %>
-          <p style="color:red;"><%= link_to "Check Status", rental_path(rental), class: "btn btn-primary"%></h1>
+          <p style="color:red;"><%= link_to "Check Status", rental_path(rental), class: "btn btn-request"%></h1>
         <% end %>
       <%end%>
     </div>
+
 </div>
 <div class="container">
   <div class="rental">
@@ -33,6 +34,7 @@
   </div>
 <div><p>Rental Price: <span style="background-color: #B2EF9B;">$<%= @deck.price %></p></p></div>
   <div class="row">
+
       <% if @deck.structures.any? %>
         <% @deck.structures.each do |structure| %>
           <div class="col-12 col-lg-4 mt-5" style="ext-align: center">
@@ -41,8 +43,8 @@
             <% else %>
               <img src="https://s3.amazonaws.com/ccg-corporate-production/news-images/Back0_Sheet%20(F)20201203163456929.jpg" alt="No Image Found" width="200" height="278">
             <% end %>
-          <br>
-          <br>
+            <br>
+            <br>
             <p><%= structure.card.name %></p>
             <br>
             <% if policy(@deck).destroy? %>
@@ -50,27 +52,28 @@
                 <i class="far fa-trash-alt"></i>
               <% end %>
             <% end %>
-          <br>
-          <br>
+            <br>
+            <br>
           </div>
-      <% end %>
+        <% end %>
       <% else %>
         <i>No cards added yet...</i>
       <% end %>
     </div>
-
-  <br>
+    <br>
     <% if current_user == @deck.user%>
-    <%= link_to "Add a card",  new_deck_structure_path(@deck), class:"btn btn-outline-info" %>
+      <%= link_to "Add a card",  new_deck_structure_path(@deck), class:"btn btn-request" %>
     <% end %>
-    </br>
-    </br>
-    <div class="d-flex justify-content-between">
-      <%= link_to decks_path do %>
-        <div><i class="fas fa-caret-square-left"></i></div>
-      <% end %>
-      <% if @deck.rentals == [] && current_user == @deck.user %>
-          <%= link_to "Delete the Deck", deck_path, class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %>
-    </div>
+
+  </br>
+</br>
+<div class="d-flex justify-content-between">
+  <%= link_to decks_path do %>
+    <div><i class="fas fa-caret-square-left"></i></div>
+  <% end %>
+  <% if @deck.rentals == [] && current_user == @deck.user %>
+    <%= link_to "Delete the Deck", deck_path, class: "btn btn-request", method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+</div>
+
 </div>

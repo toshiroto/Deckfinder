@@ -2,7 +2,7 @@
   <div class="col-12 col-lg-12 card-product-detail mt-3">
     <div class="mtg-card-img">
       <%# <% if @card.any? %>
-        <%# <%= image_tag @card.imageUrl %>
+      <%# <%= image_tag @card.imageUrl %>
       <%# <% end %>
     </div>
     <div class="mtg-card-name card-product-infos-detail">
@@ -13,9 +13,10 @@
       <br>
       <h2>Type: <%= @card.colors %></h2>
       <br>
-      <%= link_to cards_path, class: "btn btn-primary" do%>
+      <%= link_to cards_path, class: "btn btn-request" do%>
         <div>Go back</div>
       <% end %>
     </div>
   </div>
+</div>
 </div>
