@@ -57,10 +57,9 @@
             <p class="card-text">$<%= deck.price %></p>
             <p class="card-text"><%= deck.desc %></p>
             <p class="card-text" style="font-size: 18px"><small>Total Rental Requests: <strong><%= deck.rentals.count{|rental| rental.pending? && current_user!= rental.user } %></strong></small></p>
-
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
