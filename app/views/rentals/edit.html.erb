@@ -4,10 +4,19 @@
     <p>Start Date: <%= @rental.start_date %></p>
     <p>End Date: <%= @rental.end_date %></p>
     <br>
-    <%= simple_form_for @rental do |f| %>
-      <%= f.input :status, collection: Rental.statuses.keys %>
-      <%= f.submit "Enter", class: "btn btn-primary" %>
-    <% end %>
+    <%#= simple_form_for @rental do |f| %>
+      <%#= f.input :status, collection: Rental.statuses.keys %>
+      <%#= f.submit "Enter", class: "btn btn-primary" %>
+    <%# end %>
+<%= simple_form_for @rental do |f| %>
+  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+  <%= f.submit 'Accept', class: 'btn btn-info' %>
+<% end %>
+
+<%= simple_form_for @rental do |f| %>
+  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+  <%= f.submit 'Reject', class: 'btn btn-info' %>
+<% end %>
     <%= link_to decks_path do %>
   <i class="fas fa-caret-square-left"></i>
 <% end %>

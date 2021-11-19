@@ -1,0 +1,20 @@
+<tr>
+  <td ><%= rental.user.first_name %> <%= rental.user.last_name %></td>
+  <td><%= rental.user.email %></td>
+  <td><%= rental.start_date %></td>
+  <td><%= rental.end_date %></td>
+  <td><div class="rental-actions">
+  <% if rental.pending? %>
+      <%= simple_form_for rental do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'approved'} %>
+        <%= f.submit 'Accept', class: 'btn btn-info' %>
+      <% end %>
+      <%= simple_form_for rental do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+        <%= f.submit 'Reject', class: 'btn btn-info' %>
+      <% end %>
+  <% else %>
+      <p class='rental-tag'><%= rental.status %></p>
+  <% end %>
+  </td>
+</tr>

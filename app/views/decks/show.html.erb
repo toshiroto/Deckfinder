@@ -11,6 +11,7 @@
     </div>
 </div>
 <div class="container">
+  <div class="rental">
       <% if @deck.user == current_user%>
           <table class="table table-hover">
           <thead>
@@ -19,33 +20,17 @@
               <th>Email</th>
               <th>Start date</th>
               <th>End date</th>
-              <th>Current Status</th>
               <th>Change Status</th>
             </tr>
           </thead>
           <tbody>
             <% @deck.rentals.each do |rental|%>
-              <tr>
-                <td ><%= rental.user.first_name %> <%= rental.user.last_name %></td>
-                <td><%= rental.user.email %></td>
-                <td><%= rental.start_date %></td>
-                <td><%= rental.end_date %></td>
-                <%if rental.status == "approved"%>
-                  <td style="background-color:red:"><%= rental.status %></td>
-                <% else %>
-                  <td><%= rental.status %></td>
-                <% end %>
-                <td><%= link_to edit_rental_path(rental) do %>
-                <i class="fas fa-edit"></i>
-                <% end %>
-                </td>
-              </tr>
+             <%= render "rental_card", rental: rental %>
             <% end %>
           </tbody>
         </table>
       <% end %>
-
-
+  </div>
 <div><p>Rental Price: <span style="background-color: #B2EF9B;">$<%= @deck.price %></p></p></div>
   <div class="row">
       <% if @deck.structures.any? %>
@@ -87,5 +72,5 @@
       <% if @deck.rentals == [] && current_user == @deck.user %>
           <%= link_to "Delete the Deck", deck_path, class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
+    </div>
 </div>
- </div>
