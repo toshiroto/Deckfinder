@@ -19,4 +19,8 @@ class Deck < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+    def popularity
+     self.rentals.count * 1000 / Rental.count unless Rental.count.zero?
+    end
 end

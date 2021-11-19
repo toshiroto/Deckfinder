@@ -1,6 +1,6 @@
 <body style="background-color: #3F4045">
   <div class="container">
-    <div class="row justify-content-between pr-2">
+    <div class="row justify-content-between px-4">
       <ul class="nav tabs-underlined" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="active tab-underlined" id="player-tab" data-toggle="tab" href="#player" role="tab" aria-controls="player" aria-selected="true">To Rent</a>
@@ -23,17 +23,18 @@
         <%# Creating a condition where a user does not see his/her own deck in a player list %>
         <% @decks.each do |deck| %>
           <% if deck.user != current_user%>
-            <div class="card-body mx-1">
+            <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
                 <p style="font-size: 24px" class="card-title"><strong><%= link_to deck.name, deck_path(deck) %></strong></p>
                 <%= render 'sample_image'%>
               </div>
+              <p class="card-text" style="font-size: 18px"><small>Popularity: <strong><%= deck.popularity %></strong></small></p>
               <%# <p class="card-title"><strong><%= link_to deck.name, deck_path(deck) %>
               <p class="card-text" style="font-size: 18px"><em>$<%= deck.price %> per day</em></p>
               <p class="card-text"><%= deck.desc %></p>
               <%# <p class="card-text"><%= time_ago_in_words(deck.created_at)</p> %>
               <%# <% <a href="#" class="btn btn-request">Request Rental</a> %>
-              <p class="card-text" style="font-size: 18px"><small>Total Rental Requests: <strong><%= deck.rentals.count %></strong></small></p>
+              <p class="card-text" style="font-size: 18px"><small> <strong><%= deck.rentals.count {|rental| rental.pending?} %></strong> people are requesting this deck.</small></p>
               <% condition_arr = current_user.rentals.find {|rental| rental.deck == deck } %>
               <% if condition_arr == nil %>
                 <%= link_to "Request Rental",  new_deck_rental_path(deck), class:"btn btn-request" %>
@@ -56,19 +57,7 @@
             <p class="card-text">$<%= deck.price %></p>
             <p class="card-text"><%= deck.desc %></p>
             <p class="card-text" style="font-size: 18px"><small>Total Rental Requests: <strong><%= deck.rentals.count{|rental| rental.pending? && current_user!= rental.user } %></strong></small></p>
-            <%# if deck.rentals.find {|rental| rental.deck == deck }.status.capitalize == "Pending"%>
-            <%# <p class="card-text" style="font-size: 18px"><small>Total Rental Requests: <strong> %>
-            <%# i = 0 %>
-            <%# deck.rentals.each do |rental| %>
-              <%# if rental.status = "pending"%>
-              <%# i += 1%>
-              <%# end %>
-              <%# end %>
-              <%#= i %>
-              <%# </strong></small></p> %>
-              <%# else%>
-              <%# %>
-              <%# end %>
+
             </div>
           <% end %>
         </div>
