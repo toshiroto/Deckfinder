@@ -1,13 +1,10 @@
 <div class="container" mt-3>
-  <h1>Edit Rental Status</h1>
-    <br>
-    <p>Start Date: <%= @rental.start_date %></p>
-    <p>End Date: <%= @rental.end_date %></p>
-    <br>
-
-
-    <%= link_to decks_path do %>
-  <i class="fas fa-caret-square-left"></i>
-<% end %>
-
+  <p style="font-size: 24px">Edit Rental Status</p>
+  <br>
+  <p>Start Date: <%= @rental.start_date %></p>
+  <p>End Date: <%= @rental.end_date %></p>
+  <br>
+  <%= link_to decks_path do %>
+    <i class="fas fa-caret-square-left"></i>
+  <% end %>
 </div>
